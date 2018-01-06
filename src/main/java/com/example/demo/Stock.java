@@ -46,5 +46,13 @@ public class Stock {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	@Override
+	public String toString() {
+		return "Stock [stockId=" + stockId + ", companyName=" + companyName + ", symbol=" + symbol + ", price=" + price
+				+ "]";
+	}
+	
+	
 		
 }

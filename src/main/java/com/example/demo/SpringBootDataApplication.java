@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -36,6 +39,18 @@ public class SpringBootDataApplication {
 	public List<Stock> stocks(){
 		return repo.findAll();
 	}
+	
+	@RequestMapping(value = "/save_stock", method = RequestMethod.PUT)
+	public String putStock(@RequestBody Stock stock) {
+		Stock savedStock = repo.save(stock);
+		return savedStock.toString();
+	}
+	
+	@RequestMapping(value = "/get_stock", method = RequestMethod.GET)
+	public String getStock(@RequestParam String symbol) {
+		return repo.findBySymbol(symbol).toString();
+	}
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootDataApplication.class, args);
 	}
