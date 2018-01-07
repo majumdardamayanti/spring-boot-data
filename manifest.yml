@@ -1,0 +1,9 @@
+---
+applications:
+- name: spring-boot-data
+  memory: 1024M
+  disk_quota: 1024M
+  instances: 1
+  host: spring-boot-data
+  domain: cfapps.io
+  buildpack: java_buildpack
