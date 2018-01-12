@@ -37,6 +37,7 @@ public class SpringBootDataApplication {
 	
 	@RequestMapping("/stocks")
 	public List<Stock> stocks(){
+		System.out.println("1234    5678   929383");
 		return repo.findAll();
 	}
 	
